@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Job Seeker Messages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Message</th>
+      <th>Job seeker</th>
+      <th>Company</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @job_seeker_messages.each do |job_seeker_message| %>
+      <tr>
+        <td><%= job_seeker_message.message %></td>
+        <td><%= job_seeker_message.job_seeker %></td>
+        <td><%= job_seeker_message.company %></td>
+        <td><%= link_to 'Show', job_seeker_message %></td>
+        <td><%= link_to 'Edit', edit_job_seeker_message_path(job_seeker_message) %></td>
+        <td><%= link_to 'Destroy', job_seeker_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Job Seeker Message', new_job_seeker_message_path %>

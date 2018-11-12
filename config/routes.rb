@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :job_seeker_messages
   resources :resumes
   resources :profiles
   devise_for :recruiters
