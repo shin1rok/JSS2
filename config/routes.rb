@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :recruiters
   devise_for :job_seekers
   root 'companies#index'
   resources :job_offers
