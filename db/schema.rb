@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_143120) do
+ActiveRecord::Schema.define(version: 2018_11_12_143933) do
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -63,6 +63,18 @@ ActiveRecord::Schema.define(version: 2018_11_12_143120) do
     t.index ["unlock_token"], name: "index_job_seekers_on_unlock_token", unique: true
   end
 
+  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "job_seeker_id"
+    t.string "name", null: false
+    t.boolean "sex", null: false
+    t.date "birthday", null: false
+    t.string "address", null: false
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_seeker_id"], name: "index_profiles_on_job_seeker_id", unique: true
+  end
+
   create_table "recruiters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -90,4 +102,5 @@ ActiveRecord::Schema.define(version: 2018_11_12_143120) do
   end
 
   add_foreign_key "job_offers", "companies"
+  add_foreign_key "profiles", "job_seekers"
 end
