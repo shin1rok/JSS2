@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :education_histories
   resources :company_messages
   resources :job_seeker_messages
   resources :resumes

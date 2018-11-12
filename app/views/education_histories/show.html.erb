@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @education_history.profile %>
+</p>
+
+<p>
+  <strong>School name:</strong>
+  <%= @education_history.school_name %>
+</p>
+
+<p>
+  <strong>Entrance date:</strong>
+  <%= @education_history.entrance_date %>
+</p>
+
+<p>
+  <strong>Graduation date:</strong>
+  <%= @education_history.graduation_date %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @education_history.status %>
+</p>
+
+<%= link_to 'Edit', edit_education_history_path(@education_history) %> |
+<%= link_to 'Back', education_histories_path %>
