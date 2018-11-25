@@ -1,10 +1,17 @@
 <header>
-  <ul>
-    <li>logo</li>
-    <li>about</li>
-    <li>sign_in</li>
-    <li>sign_up</li>
-  </ul>
+  <nav>
+    <ul>
+      <li>logo</li>
+      <li>about</li>
+      <% if job_seeker_signed_in? %>
+        <li><%= link_to current_job_seeker.id, edit_job_seeker_registration_path %></li>
+        <li><%= link_to 'ログアウト', destroy_job_seeker_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to 'SIGN UP', new_job_seeker_registration_path %></li>
+        <li><%= link_to 'SIGN IN', new_job_seeker_session_path %></li>
+      <% end %>
+    </ul>
+  </nav>
 </header>
 
 
