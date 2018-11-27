@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :job_seeker_messages
   resources :resumes
   resources :profiles
-  devise_for :recruiters
-  devise_for :job_seekers, controllers: { sessions: 'job_seekers/sessions' }
+  devise_for :recruiters, controllers: { sessions: 'recruiters/sessions' } # TODO sessions以外も追加する
+  devise_for :job_seekers, controllers: { sessions: 'job_seekers/sessions' } # TODO sessions以外も追加する
   root 'companies#index' # TODO ちゃんとする
   resources :job_offers
   resources :companies
