@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :resumes
   resources :profiles
   devise_for :recruiters
-  devise_for :job_seekers
+  devise_for :job_seekers, controllers: { sessions: 'job_seekers/sessions' }
   root 'companies#index' # TODO ちゃんとする
   resources :job_offers
   resources :companies
